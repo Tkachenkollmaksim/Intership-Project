@@ -73,5 +73,5 @@ class ProjectPage(Page):
         # self.wait.until(
         #     EC.visibility_of_element_located(self.SEND_APPLICATION_BTN),  # Do not unpack here
         #     message=f'Element by {self.SEND_APPLICATION_BTN} did not appear'
-        # )
+        # )git clone -b main https://github.com/browserstack/python-selenium-browserstack
 
