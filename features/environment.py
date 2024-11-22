@@ -6,6 +6,7 @@ from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.chrome.options import Options
 
 
+
 from app.application import Application
 
 
@@ -29,20 +30,49 @@ def browser_init(context, scenario_name):
     #     service=service
     # )
 
-    ## BROWSERSTACK ###
+    # # # ## BROWSERSTACK ###
+    # bs_user = 'maksimtkachenko_XKOec4'
+    # bs_key = 'WGyzDu7xCQpSdXN5LZcY'
+    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    #
+    # options = Options()
+    # bstack_options = {
+    #     "os": "Windows",
+    #     "osVersion": "10",
+    #     'browserName': 'Firefox',
+    #     'sessionName': scenario_name,
+    # }
+    # options.set_capability('bstack:options', bstack_options)
+    # context.driver = webdriver.Remote(command_executor=url, options=options)
+
+    # # ## Mobile Test - Chrome Simulator ###
+    # mobile_emulation = {
+    #     "deviceName": "iPhone 14 Pro Max"  # Choose a mobile device
+    # }
+    #
+    # options = webdriver.ChromeOptions()
+    # options.add_experimental_option("mobileEmulation", mobile_emulation)
+    #
+    # # Initialize WebDriver with mobile emulation
+    # service = Service(ChromeDriverManager().install())
+    # context.driver = webdriver.Chrome(service=service, options=options)
+
+    # # ## BROWSERSTACK Mobile###
     bs_user = 'maksimtkachenko_XKOec4'
     bs_key = 'WGyzDu7xCQpSdXN5LZcY'
     url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
 
     options = Options()
     bstack_options = {
-        "os": "Windows",
-        "osVersion": "10",
-        'browserName': 'Firefox',
+        'platformName': 'iOS',
+        "deviceName": "iPhone 14",
+        "osVersion": "18",
+        'browserName': 'safari',
         'sessionName': scenario_name,
     }
     options.set_capability('bstack:options', bstack_options)
     context.driver = webdriver.Remote(command_executor=url, options=options)
+
 
 
 

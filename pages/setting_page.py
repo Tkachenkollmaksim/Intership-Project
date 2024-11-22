@@ -5,9 +5,10 @@ from time import sleep
 from pages.base_page import Page
 
 class SettingPage(Page):
-    CLICK_PROJECT = (By.XPATH, "//div[@class='setting-text' and text()='Add a project']")
+    # CLICK_PROJECT = (By.XPATH, "//a[@href='/add-a-project']")
+    CLICK_PROJECT = (By.XPATH, "//a[@href='/add-a-project' and @class='page-button-menu w-inline-block']")
 
 
     def click_add_project(self):
-        self.click(*self.CLICK_PROJECT)
+        self.wait_to_be_clickable_click(*self.CLICK_PROJECT)
         sleep(3)
